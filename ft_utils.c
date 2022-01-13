@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 23:01:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/10 23:16:12 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/13 17:13:53 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (sum * sign);
+}
+
+long int	actual_time(void)
+{
+	long int		time;
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
+	return (time);
 }

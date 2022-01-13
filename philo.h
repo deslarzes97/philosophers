@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:42:15 by desa              #+#    #+#             */
-/*   Updated: 2022/01/12 17:24:28 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/13 17:31:16 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,23 @@
 
 typedef struct	s_args
 {
-	int		nbr_philo;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		nbr_to_eat;
+	int			nbr_philo;
+	int			time_to_die;
+	int			time_to_eat;
+	int			time_to_sleep;
+	int			nbr_to_eat;
+	long int	start;
+	long int	stop;
 }				t_args;
 
 typedef struct	s_philo
 {
-	int			id;
+	int				id;
+	long int		ms_eat;
+	unsigned int	nbr_eat;
 	pthread_t	thread_id;
+	pthread_t	thread_death_id;
+
 	t_args		philo_args;
 }				t_philo;
 
@@ -55,9 +61,24 @@ typedef struct	s_p
 	t_args		args;
 }				t_p;
 
+typedef struct s_time
+{
+	long int		tv_sec;
+	int				tv_usec;
+	unsigned int	timestamp_in_ms;
+	unsigned int	prog_start;
+}	t_time;
 
 /* Fonctions */
-int		ft_atoi(const char *str);
+
+// ft_utils.c
+int			ft_atoi(const char *str);
+long int	actual_time(void);
+
+// ft_check_input.c
 int		check_input(int argc, char **argv, t_p *p);
+
+// ft_initialize.c
+int	ft_init(t_p *p);
 
 #endif
