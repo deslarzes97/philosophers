@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_initialize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:16:57 by desa              #+#    #+#             */
-/*   Updated: 2022/01/13 17:08:12 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/18 11:58:16 by adeslarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_init(t_p *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	p->args.start = actual_time();

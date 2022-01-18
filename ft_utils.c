@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 23:01:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/13 21:47:26 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/18 15:39:24 by adeslarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_thread_message(t_p *p, char *opt)
 {
 	size_t	time;
 
-	time = actual_time() - p->args.start;
-	printf("%ld", time);
+	(void) opt;
+	time = (actual_time() - p->args.start);
+	printf("%ld\n", time);
 }

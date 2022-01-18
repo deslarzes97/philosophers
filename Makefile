@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: desa <desa@student.42.fr>                  +#+  +:+       +#+         #
+#    By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/10 22:22:50 by desa              #+#    #+#              #
-#    Updated: 2022/01/13 20:45:40 by desa             ###   ########.fr        #
+#    Updated: 2022/01/18 16:13:26 by adeslarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS =	main.c\
 		ft_check_input.c\
 		ft_initialize.c\
 		ft_thread.c\
+		ft_utils_philo.c\
 
 NAME		= philo
 
