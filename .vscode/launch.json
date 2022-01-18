@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/philo",
             "args": 
             [
-                "1", "2", "3", "4", "5"
+                "3", "400", "200", "100"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

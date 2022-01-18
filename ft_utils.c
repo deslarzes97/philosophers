@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 23:01:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/13 17:13:53 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/13 21:47:26 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,12 @@ long int	actual_time(void)
 	gettimeofday(&current_time, NULL);
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
+}
+
+void	ft_thread_message(t_p *p, char *opt)
+{
+	size_t	time;
+
+	time = actual_time() - p->args.start;
+	printf("%ld", time);
 }

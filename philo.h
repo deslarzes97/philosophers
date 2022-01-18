@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:42:15 by desa              #+#    #+#             */
-/*   Updated: 2022/01/13 17:31:16 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/13 20:55:11 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct	s_philo
 	pthread_t	thread_id;
 	pthread_t	thread_death_id;
 
-	t_args		philo_args;
+	t_args		*philo_args;
 }				t_philo;
 
 typedef struct	s_p
@@ -79,6 +79,10 @@ long int	actual_time(void);
 int		check_input(int argc, char **argv, t_p *p);
 
 // ft_initialize.c
-int	ft_init(t_p *p);
+int		ft_init(t_p *p);
+
+// ft_thread.c
+int 	threading(t_p *p);
+void	*thread(void *data);
 
 #endif
