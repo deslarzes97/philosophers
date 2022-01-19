@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:31:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 15:42:14 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/19 16:17:41 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	check_death2(t_p *p)
 static void	stop(t_p *p)
 {
 	int	i;
-	
+
 	i = -1;
 	while (!check_death2(p))
 		usleep(1);

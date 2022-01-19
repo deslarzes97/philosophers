@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:25:02 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 14:26:25 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/19 16:16:27 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	*thread_is_dead(void *data)
 	usleep(philo->philo_args->time_to_die);
 	pthread_mutex_lock(&philo->philo_args->eat);
 	pthread_mutex_lock(&philo->philo_args->finish);
-	if (!check_death(philo, 0) && !philo->finish && ((actual_time() - philo->ms_eat) \
+	if (!check_death(philo, 0) && !philo->finish && \
+		((actual_time() - philo->ms_eat) \
 		>= (long)(philo->philo_args->time_to_die)))
 	{
 		pthread_mutex_unlock(&philo->philo_args->eat);
