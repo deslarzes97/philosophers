@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+        */
+/*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:42:15 by desa              #+#    #+#             */
-/*   Updated: 2022/01/18 16:26:26 by adeslarz         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:47:34 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,34 @@
 # include <sys/time.h>
 # include <pthread.h>
 
-/* terminal color */
-
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
-# define YELLOW "\033[0;33m"
-# define BLUE "\033[0;34m"
-# define MAGENTA "\033[0;35m"
-# define CYAN "\033[0;36m"
-# define DEFAULT "\033[0m"
-
 /* Structures */
 
 typedef struct s_args
 {
-	int			nbr_philo;
-	int			time_to_die;
-	int			time_to_eat;
-	int			time_to_sleep;
-	int			nbr_to_eat;
-	int			dead;
-	long int	start;
-	long int	stop;
-}				t_args;
+	int						nbr_philo;
+	int						time_to_die;
+	int						time_to_eat;
+	int						time_to_sleep;
+	int						nbr_to_eat;
+	long int				start;
+	pthread_mutex_t			print;
+	pthread_mutex_t			dead;
+	pthread_mutex_t			eat;
+	pthread_mutex_t			finish;
+	long int				stop;
+}							t_args;
 
 typedef struct s_philo
 {
-	int				id;
-	long int		ms_eat;
-	unsigned int	nbr_eat;
-	pthread_t		thread_id;
-	int				left_f;
-	int				right_f;
-	int				fork_id;
-	t_args			*philo_args;
+	int						id;
+	pthread_t				thread_id;
+	pthread_t				thread_dead_id;
+	pthread_mutex_t			*right_fork;
+	pthread_mutex_t			left_fork;
+	long int				ms_eat;
+	unsigned int			nbr_eat;
+	int						finish;
+	t_args					*philo_args;
 }				t_philo;
 
 typedef struct s_p
@@ -89,5 +83,10 @@ int			ft_init(t_p *p);
 // ft_thread.c
 int			threading(t_p *p);
 void		*thread(void *data);
+
+// ft_sleep_think_eat.c
+void		write_activity(char *str, t_philo *philo);
+void		sleep_and_think(t_philo *philo);
+void		take_fork_eating(t_philo *philo);
 
 #endif
