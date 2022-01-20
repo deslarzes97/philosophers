@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:25:02 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 16:16:27 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/20 14:29:19 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*thread_is_dead(void *data)
 	t_philo		*philo;
 
 	philo = (t_philo *)data;
-	usleep(philo->philo_args->time_to_die);
+	ft_usleep(philo->philo_args->time_to_die + 10);
 	pthread_mutex_lock(&philo->philo_args->eat);
 	pthread_mutex_lock(&philo->philo_args->finish);
 	if (!check_death(philo, 0) && !philo->finish && \
@@ -42,12 +42,25 @@ void	*thread(void *data)
 
 	philo = (t_philo *)data;
 	if (philo->id % 2 == 0)
-		usleep(1000);
+		ft_usleep(philo->philo_args->time_to_eat / 10);
 	while (!check_death(philo, 0))
 	{
 		pthread_create(&philo->thread_dead_id, NULL, thread_is_dead, data);
 		take_fork_eating(philo);
 		pthread_detach(philo->thread_dead_id);
+		if ((int)++philo->nbr_eat == philo->philo_args->nbr_to_eat)
+		{
+			pthread_mutex_lock(&philo->philo_args->finish);
+			philo->finish = 1;
+			philo->philo_args->nbr_philo_finish++;
+			if (philo->philo_args->nbr_philo_finish == philo->philo_args->nbr_philo)
+			{
+				pthread_mutex_unlock(&philo->philo_args->finish);
+				check_death(philo, 2);
+			}
+			pthread_mutex_unlock(&philo->philo_args->finish);
+			return (NULL);
+		}
 	}
 	return (NULL);
 }

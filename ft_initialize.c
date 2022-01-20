@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 14:16:57 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 14:27:23 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/20 13:57:07 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	initialize_mutex(t_p *ph)
 	pthread_mutex_init(&ph->args.print, NULL);
 	pthread_mutex_init(&ph->args.dead, NULL);
 	pthread_mutex_init(&ph->args.eat, NULL);
+	pthread_mutex_init(&ph->args.finish, NULL);
 }
 
 int	ft_init(t_p *p)
@@ -26,6 +27,7 @@ int	ft_init(t_p *p)
 	i = 0;
 	p->args.start = actual_time();
 	p->args.stop = 0;
+	p->args.nbr_philo_finish = 0;
 	initialize_mutex(p);
 	while (i < p->args.nbr_philo)
 	{

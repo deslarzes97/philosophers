@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:31:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 16:17:41 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/20 14:13:28 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	stop(t_p *p)
 
 	i = -1;
 	while (!check_death2(p))
-		usleep(1);
+		ft_usleep(1);
 	while (++i < p->args.nbr_philo)
 		pthread_join(p->ph[i].thread_id, NULL);
 	pthread_mutex_destroy(&p->args.print);
@@ -38,7 +38,7 @@ static void	stop(t_p *p)
 	while (++i < p->args.nbr_philo)
 		pthread_mutex_destroy(&p->ph[i].left_fork);
 	if (p->args.stop == 2)
-		printf("Each philosopher ate %i time(s)\n", p->args.nbr_to_eat);
+		printf("Every philosopher(s) ate %i time(s)\n", p->args.nbr_to_eat);
 	free(p->ph);
 }
 

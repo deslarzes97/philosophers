@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 22:42:15 by desa              #+#    #+#             */
-/*   Updated: 2022/01/19 14:47:34 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/20 13:26:04 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_args
 	pthread_mutex_t			eat;
 	pthread_mutex_t			finish;
 	long int				stop;
+	int						nbr_philo_finish;
 }							t_args;
 
 typedef struct s_philo
@@ -88,5 +89,5 @@ void		*thread(void *data);
 void		write_activity(char *str, t_philo *philo);
 void		sleep_and_think(t_philo *philo);
 void		take_fork_eating(t_philo *philo);
-
+void		ft_usleep(long int time_in_ms);
 #endif
