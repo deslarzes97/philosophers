@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:42:45 by desa              #+#    #+#             */
-/*   Updated: 2022/01/20 14:12:32 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/20 14:59:10 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	take_fork_eating(t_philo *philo)
 	pthread_mutex_lock(&philo->philo_args->print);
 	write_activity("has take a fork\n", philo);
 	pthread_mutex_unlock(&philo->philo_args->print);
-	/*if (!philo->right_fork)
+	if (!philo->right_fork)
 	{
 		ft_usleep(philo->philo_args->time_to_die * 2);
 		return ;
-	}*/
+	}
 	pthread_mutex_lock(philo->right_fork);
 	pthread_mutex_lock(&philo->philo_args->print);
 	write_activity("has take a fork\n", philo);
