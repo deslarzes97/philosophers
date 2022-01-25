@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+        */
+/*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 23:01:21 by desa              #+#    #+#             */
-/*   Updated: 2022/01/18 15:39:24 by adeslarz         ###   ########.fr       */
+/*   Updated: 2022/01/20 16:10:35 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,8 @@ long int	actual_time(void)
 	long int		time;
 	struct timeval	current_time;
 
+	time = 0;
 	gettimeofday(&current_time, NULL);
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
-}
-
-void	ft_thread_message(t_p *p, char *opt)
-{
-	size_t	time;
-
-	(void) opt;
-	time = (actual_time() - p->args.start);
-	printf("%ld\n", time);
 }

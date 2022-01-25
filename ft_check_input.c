@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adeslarz <adeslarz@42lausanne.ch>          +#+  +:+       +#+        */
+/*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 00:27:14 by desa              #+#    #+#             */
-/*   Updated: 2022/01/18 11:58:02 by adeslarz         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:42:47 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	check_input(int argc, char **argv, t_p *p)
 		p->args.time_to_die = ft_atoi(argv[2]);
 		p->args.time_to_eat = ft_atoi(argv[3]);
 		p->args.time_to_sleep = ft_atoi(argv[4]);
+		p->args.nbr_to_eat = -1;
 		if (argc == 6)
 			p->args.nbr_to_eat = ft_atoi(argv[5]);
 		return (1);
