@@ -6,7 +6,7 @@
 /*   By: desa <desa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:06:07 by adeslarz          #+#    #+#             */
-/*   Updated: 2022/01/20 13:25:58 by desa             ###   ########.fr       */
+/*   Updated: 2022/01/25 19:21:44 by desa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	ft_usleep(long int time_in_ms)
 	start_time = 0;
 	start_time = actual_time();
 	while ((actual_time() - start_time) < time_in_ms)
-		ft_usleep(time_in_ms / 10);
+		usleep(time_in_ms / 10);
 }
